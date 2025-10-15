@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - SmartFinance</title>
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="auth.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-visual">
+            <div class="visual-content">
+                <div class="animated-bg">
+                    <div class="floating-shapes">
+                        <div class="shape shape-1"></div>
+                        <div class="shape shape-2"></div>
+                        <div class="shape shape-3"></div>
+                        <div class="shape shape-4"></div>
+                        <div class="shape shape-5"></div>
+                    </div>
+                </div>
+                <div class="content-wrapper">
+                    <h2 class="welcome-title">Join SmartFinance Today</h2>
+                    <p class="welcome-subtitle">Start your journey to financial freedom</p>
+                    <div class="visual-features">
+                        <div class="feature-item slide-in-left">
+                            <div class="feature-icon-wrapper">
+                                <span class="feature-icon">✅</span>
+                            </div>
+                            <span>Track expenses easily</span>
+                        </div>
+                        <div class="feature-item slide-in-left delay-1">
+                            <div class="feature-icon-wrapper">
+                                <span class="feature-icon">✅</span>
+                            </div>
+                            <span>Set smart budget goals</span>
+                        </div>
+                        <div class="feature-item slide-in-left delay-2">
+                            <div class="feature-icon-wrapper">
+                                <span class="feature-icon">✅</span>
+                            </div>
+                            <span>Get AI-powered insights</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stats-preview">
+                        <div class="stat-item pulse">
+                            <div class="stat-number">24K+</div>
+                            <div class="stat-label">Students</div>
+                        </div>
+                        <div class="stat-item pulse delay-1">
+                            <div class="stat-number">$2M+</div>
+                            <div class="stat-label">Saved</div>
+                        </div>
+                        <div class="stat-item pulse delay-2">
+                            <div class="stat-number">98%</div>
+                            <div class="stat-label">Satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="auth-form">
+            <div class="form-container fade-in">
+                <div class="form-header">
+                    <a href="index.html" class="back-link hover-effect">← Back to Home</a>
+                    <h1 class="form-title">Create Account</h1>
+                    <p class="form-subtitle">Sign up for free and start managing your finances</p>
+                </div>
+                
+                <form id="register-form" class="auth-form-element" novalidate>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <input 
+                                type="text" 
+                                id="firstName" 
+                                name="firstName" 
+                                class="form-input animated-input" 
+                                placeholder="John"
+                                required 
+                                aria-describedby="firstName-error"
+                                data-validation="name"
+                            >
+                            <div id="firstName-error" class="error-message" role="alert" aria-live="polite"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <input 
+                                type="text" 
+                                id="lastName" 
+                                name="lastName" 
+                                class="form-input animated-input" 
+                                placeholder="Doe"
+                                required 
+                                aria-describedby="lastName-error"
+                                data-validation="name"
+                            >
+                            <div id="lastName-error" class="error-message" role="alert" aria-live="polite"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            class="form-input animated-input" 
+                            placeholder="john.doe@university.edu"
+                            required 
+                            aria-describedby="email-error"
+                            data-validation="email"
+                        >
+                        <div id="email-error" class="error-message" role="alert" aria-live="polite"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password" class="form-label">Password</label>
+                        <div class="password-input">
+                            <input 
+                                type="password" 
+                                id="password" 
+                                name="password" 
+                                class="form-input animated-input" 
+                                placeholder="Create a strong password"
+                                required 
+                                aria-describedby="password-error password-strength"
+                                data-validation="password"
+                            >
+                            <button type="button" class="password-toggle hover-effect" aria-label="Toggle password visibility">
+                                <span class="toggle-icon">👁️</span>
+                            </button>
+                        </div>
+                        <div id="password-strength" class="password-strength">
+                            <div class="strength-meter">
+                                <div class="strength-bar"></div>
+                            </div>
+                            <span class="strength-text">Password strength: Weak</span>
+                        </div>
+                        <div id="password-error" class="error-message" role="alert" aria-live="polite"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmPassword" class="form-label">Confirm Password</label>
+                        <input 
+                            type="password" 
+                            id="confirmPassword" 
+                            name="confirmPassword" 
+                            class="form-input animated-input" 
+                            placeholder="Confirm your password"
+                            required 
+                            aria-describedby="confirmPassword-error"
+                        >
+                        <div id="confirmPassword-error" class="error-message" role="alert" aria-live="polite"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="currency" class="form-label">Primary Currency</label>
+                        <div class="select-wrapper">
+                            <select id="currency" name="currency" class="form-input animated-input" required>
+                                <option value="">Select your currency</option>
+                                <option value="USD">🇺🇸 USD - US Dollar</option>
+                                <option value="EUR">🇪🇺 EUR - Euro</option>
+                                <option value="GBP">🇬🇧 GBP - British Pound</option>
+                                <option value="CAD">🇨🇦 CAD - Canadian Dollar</option>
+                                <option value="AUD">🇦🇺 AUD - Australian Dollar</option>
+                                <option value="NGN">🇳🇬 NGN - Nigerian Naira</option>
+                                <option value="RWF">🇷🇼 RWF - Rwandan Franc</option>
+                                <option value="ZAR">🇿🇦 ZAR - South African Rand</option>
+                                <option value="KES">🇰🇪 KES - Kenyan Shilling</option>
+                                <option value="GHS">🇬🇭 GHS - Ghanaian Cedi</option>
+                                <option value="JPY">🇯🇵 JPY - Japanese Yen</option>
+                                <option value="CHF">🇨🇭 CHF - Swiss Franc</option>
+                                <option value="CNY">🇨🇳 CNY - Chinese Yuan</option>
+                                <option value="INR">🇮🇳 INR - Indian Rupee</option>
+                            </select>
+                            <div class="select-arrow">▼</div>
+                        </div>
+                        <div id="currency-error" class="error-message" role="alert" aria-live="polite"></div>
+                    </div>
+                    
+                    <div class="form-options">
+                        <label class="checkbox-label animated-checkbox">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">
+                                I agree to the <a href="#terms" target="_blank" class="link-highlight">Terms of Service</a> and <a href="#privacy" target="_blank" class="link-highlight">Privacy Policy</a>
+                            </span>
+                        </label>
+                        <div id="terms-error" class="error-message" role="alert" aria-live="polite"></div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-full animated-btn" id="register-btn">
+                        <span class="btn-text">Create Account</span>
+                        <span class="btn-loading hidden">
+                            <span class="spinner"></span>
+                            Creating...
+                        </span>
+                    </button>
+                </form>
+                
+                <div class="form-footer">
+                    <p>Already have an account? <a href="login.html" class="link-highlight">Sign in here</a></p>
+                </div>
+                
+                <div class="social-register">
+                    <div class="divider">
+                        <span>or continue with</span>
+                    </div>
+                    <div class="social-buttons">
+                        <button class="social-btn google-btn hover-effect">
+                            <span class="social-icon">G</span>
+                            Google
+                        </button>
+                        <button class="social-btn github-btn hover-effect">
+                            <span class="social-icon">⚡</span>
+                            GitHub
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <button id="theme-toggle" class="theme-toggle floating pulse-on-hover" aria-label="Toggle dark mode">
+        <span class="theme-icon">🌙</span>
+    </button>
+    
+    <div id="loading-overlay" class="loading-overlay hidden">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <p class="loading-text">Creating your account...</p>
+        </div>
+    </div>
+    
+    <script src="validation.js"></script>
+    <script src="auth.js"></script>
+</body>
+</html>

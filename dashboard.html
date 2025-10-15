@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - SmartFinance</title>
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- Enhanced Sidebar with animations -->
+        <aside class="sidebar slide-in-left" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-container">
+                    <div class="logo-icon pulse">💰</div>
+                    <div class="logo-text">
+                        <h1 class="brand-name">SmartFinance</h1>
+                        <p class="brand-tagline">Student Edition</p>
+                    </div>
+                </div>
+                <button class="sidebar-collapse" id="sidebarCollapse" aria-label="Collapse sidebar">
+                    <span class="collapse-icon">←</span>
+                </button>
+            </div>
+            
+            <nav class="sidebar-nav" role="navigation" aria-label="Dashboard navigation">
+                <div class="nav-section">
+                    <span class="nav-section-title">Overview</span>
+                    <a href="#dashboard" class="nav-item active hover-slide" data-section="dashboard">
+                        <span class="nav-icon">📊</span>
+                        <span class="nav-text">Dashboard</span>
+                        <span class="nav-indicator"></span>
+                    </a>
+                    <a href="#transactions" class="nav-item hover-slide" data-section="transactions">
+                        <span class="nav-icon">💳</span>
+                        <span class="nav-text">Transactions</span>
+                        <span class="nav-indicator"></span>
+                    </a>
+                </div>
+                
+                <div class="nav-section">
+                    <span class="nav-section-title">Management</span>
+                    <a href="#budgets" class="nav-item hover-slide" data-section="budgets">
+                        <span class="nav-icon">🎯</span>
+                        <span class="nav-text">Budgets</span>
+                        <span class="nav-indicator"></span>
+                    </a>
+                    <a href="#analytics" class="nav-item hover-slide" data-section="analytics">
+                        <span class="nav-icon">📈</span>
+                        <span class="nav-text">Analytics</span>
+                        <span class="nav-indicator"></span>
+                    </a>
+                </div>
+                
+                <div class="nav-section">
+                    <span class="nav-section-title">System</span>
+                    <a href="#settings" class="nav-item hover-slide" data-section="settings">
+                        <span class="nav-icon">⚙️</span>
+                        <span class="nav-text">Settings</span>
+                        <span class="nav-indicator"></span>
+                    </a>
+                </div>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="user-profile-card">
+                    <div class="profile-avatar">
+                        <span id="user-avatar">JS</span>
+                        <div class="online-indicator"></div>
+                    </div>
+                    <div class="profile-info">
+                        <span class="profile-name" id="user-name">John Student</span>
+                        <span class="profile-status">Premium Member</span>
+                    </div>
+                    <button class="profile-menu-btn" aria-label="Profile menu">⋯</button>
+                </div>
+                
+                <div class="sidebar-actions">
+                    <button id="theme-toggle" class="theme-toggle animated-btn" aria-label="Toggle theme">
+                        <span class="theme-icon">🌙</span>
+                    </button>
+                    <button id="logout-btn" class="logout-btn animated-btn" aria-label="Logout">
+                        <span class="logout-icon">🚪</span>
+                    </button>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Enhanced Main Content -->
+        <main class="main-content fade-in-up">
+            <!-- Dynamic Header -->
+            <header class="dashboard-header">
+                <div class="header-left">
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle mobile menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <div class="page-info">
+                        <h1 id="page-title" class="page-title">Dashboard</h1>
+                        <p class="page-subtitle" id="page-subtitle">Welcome back! Here's your financial overview</p>
+                    </div>
+                </div>
+                
+                <div class="header-right">
+                    <div class="header-actions">
+                        <div class="search-container">
+                            <input 
+                                type="text" 
+                                id="global-search" 
+                                class="search-input" 
+                                placeholder="Search anything..."
+                                aria-label="Global search"
+                            >
+                            <button class="search-btn" aria-label="Search">🔍</button>
+                        </div>
+                        
+                        <button class="notification-btn" aria-label="Notifications">
+                            <span class="notification-icon">🔔</span>
+                            <span class="notification-badge animated-badge" id="notificationCount">0</span>
+                        </button>
+                        
+                        <div class="quick-actions">
+                            <button class="quick-action-btn" id="quickAddTransaction" aria-label="Quick add transaction">
+                                <span>+</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="dashboard-content">
+                <!-- Dashboard Section with Dynamic Stats -->
+                <section id="dashboard-section" class="content-section active">
+                    <!-- Welcome Banner -->
+                    <div class="welcome-banner slide-in-right">
+                        <div class="welcome-content">
+                            <h2 class="welcome-title">Good <span id="timeOfDay">morning</span>, <span id="userName">John</span>! 👋</h2>
+                            <p class="welcome-message" id="welcomeMessage">Ready to take control of your finances today?</p>
+                        </div>
+                        <div class="welcome-actions">
+                            <button class="welcome-btn primary" id="addIncomeBtn">+ Add Income</button>
+                            <button class="welcome-btn secondary" id="addExpenseBtn">+ Add Expense</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Dynamic Stats Grid -->
+                    <div class="stats-grid">
+                        <div class="stat-card balance-card scale-in" style="animation-delay: 0.1s">
+                            <div class="stat-header">
+                                <div class="stat-info">
+                                    <h3>Current Balance</h3>
+                                    <p class="stat-description">Your available funds</p>
+                                </div>
+                                <div class="stat-icon-wrapper balance-icon">
+                                    <span class="stat-icon">💰</span>
+                                </div>
+                            </div>
+                            <div class="stat-value-container">
+                                <div class="stat-value" id="currentBalance">
+                                    <span class="currency-symbol" id="balanceCurrency">$</span>
+                                    <span class="amount" id="balanceAmount">0.00</span>
+                                </div>
+                                <div class="stat-change" id="balanceChange">
+                                    <span class="change-icon">→</span>
+                                    <span class="change-text">No transactions yet</span>
+                                </div>
+                            </div>
+                            <div class="stat-footer">
+                                <div class="mini-chart" id="balanceChart"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card income-card scale-in" style="animation-delay: 0.2s">
+                            <div class="stat-header">
+                                <div class="stat-info">
+                                    <h3>Monthly Income</h3>
+                                    <p class="stat-description">This month's earnings</p>
+                                </div>
+                                <div class="stat-icon-wrapper income-icon">
+                                    <span class="stat-icon">📈</span>
+                                </div>
+                            </div>
+                            <div class="stat-value-container">
+                                <div class="stat-value" id="monthlyIncome">
+                                    <span class="currency-symbol" id="incomeCurrency">$</span>
+                                    <span class="amount" id="incomeAmount">0.00</span>
+                                </div>
+                                <div class="stat-change" id="incomeChange">
+                                    <span class="change-icon">→</span>
+                                    <span class="change-text">Start adding income</span>
+                                </div>
+                            </div>
+                            <div class="stat-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="incomeProgress" style="width: 0%"></div>
+                                </div>
+                                <span class="progress-text">vs. last month</span>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card expenses-card scale-in" style="animation-delay: 0.3s">
+                            <div class="stat-header">
+                                <div class="stat-info">
+                                    <h3>Monthly Expenses</h3>
+                                    <p class="stat-description">This month's spending</p>
+                                </div>
+                                <div class="stat-icon-wrapper expenses-icon">
+                                    <span class="stat-icon">📉</span>
+                                </div>
+                            </div>
+                            <div class="stat-value-container">
+                                <div class="stat-value" id="monthlyExpenses">
+                                    <span class="currency-symbol" id="expensesCurrency">$</span>
+                                    <span class="amount" id="expensesAmount">0.00</span>
+                                </div>
+                                <div class="stat-change" id="expensesChange">
+                                    <span class="change-icon">→</span>
+                                    <span class="change-text">Track your spending</span>
+                                </div>
+                            </div>
+                            <div class="expense-breakdown">
+                                <div class="category-indicator food" style="width: 0%"></div>
+                                <div class="category-indicator transport" style="width: 0%"></div>
+                                <div class="category-indicator entertainment" style="width: 0%"></div>
+                                <div class="category-indicator other" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card savings-card scale-in" style="animation-delay: 0.4s">
+                            <div class="stat-header">
+                                <div class="stat-info">
+                                    <h3>Savings Goal</h3>
+                                    <p class="stat-description">Progress towards goal</p>
+                                </div>
+                                <div class="stat-icon-wrapper savings-icon">
+                                    <span class="stat-icon">🎯</span>
+                                </div>
+                            </div>
+                            <div class="stat-value-container">
+                                <div class="stat-value" id="savingsProgress">
+                                    <span class="percentage" id="savingsPercentage">0</span>
+                                    <span class="percentage-symbol">%</span>
+                                </div>
+                                <div class="savings-info">
+                                    <span class="saved-amount">
+                                        <span id="savedAmount">$0</span> of <span id="savingsGoal">$500</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="circular-progress">
+                                <svg class="progress-circle" width="60" height="60">
+                                    <circle class="progress-track" cx="30" cy="30" r="25" stroke-width="4"></circle>
+                                    <circle class="progress-bar-circle" cx="30" cy="30" r="25" stroke-width="4" 
+                                            id="savingsCircle" style="stroke-dasharray: 157; stroke-dashoffset: 157;"></circle>
+                                </svg>
+                                <div class="progress-center">
+                                    <span id="savingsProgressText">0%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Enhanced Dashboard Grid -->
+                    <div class="dashboard-grid">
+                        <!-- Spending Chart with Real Data -->
+                        <div class="chart-container glass-effect slide-in-left">
+                            <div class="chart-header">
+                                <div class="chart-title-section">
+                                    <h3>Spending Overview</h3>
+                                    <p class="chart-description">Your expense trends over time</p>
+                                </div>
+                                <div class="chart-controls">
+                                    <button class="chart-period-btn active" data-period="week">7D</button>
+                                    <button class="chart-period-btn" data-period="month">30D</button>
+                                    <button class="chart-period-btn" data-period="quarter">3M</button>
+                                    <button class="chart-period-btn" data-period="year">1Y</button>
+                                </div>
+                            </div>
+                            <div class="chart-content">
+                                <div id="spendingChartContainer" class="chart-wrapper">
+                                    <canvas id="spendingChart" width="400" height="200"></canvas>
+                                    <div class="chart-overlay" id="chartOverlay">
+                                        <div class="no-data-message">
+                                            <div class="no-data-icon">📊</div>
+                                            <h4>No spending data yet</h4>
+                                            <p>Start adding transactions to see your spending trends</p>
+                                            <button class="chart-cta-btn" id="addFirstTransaction">Add Transaction</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Dynamic Categories -->
+                        <div class="categories-container glass-effect slide-in-up">
+                            <div class="categories-header">
+                                <div class="section-title">
+                                    <h3>Budget Categories</h3>
+                                    <p class="section-description">Manage your spending categories</p>
+                                </div>
+                                <button class="add-category-btn hover-lift" id="addCategoryBtn">
+                                    <span class="btn-icon">+</span>
+                                    <span class="btn-text">Add</span>
+                                </button>
+                            </div>
+                            <div class="categories-list" id="categoriesList">
+                                <div class="no-categories-message" id="noCategoriesMessage">
+                                    <div class="empty-icon">📝</div>
+                                    <h4>Set up your categories</h4>
+                                    <p>Create budget categories to organize your expenses</p>
+                                    <button class="setup-categories-btn" id="setupCategoriesBtn">Setup Categories</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Recent Transactions with Real Data -->
+                        <div class="recent-transactions glass-effect slide-in-right">
+                            <div class="section-header">
+                                <div class="section-title">
+                                    <h3>Recent Activity</h3>
+                                    <p class="section-description">Your latest transactions</p>
+                                </div>
+                                <button class="view-all-btn" data-section="transactions">View All</button>
+                            </div>
+                            <div class="transactions-content">
+                                <div class="transactions-list" id="recentTransactionsList">
+                                    <div class="no-transactions-message" id="noTransactionsMessage">
+                                        <div class="empty-icon">💳</div>
+                                        <h4>No transactions yet</h4>
+                                        <p>Start tracking your income and expenses</p>
+                                        <div class="transaction-quick-actions">
+                                            <button class="quick-add-btn income" id="quickAddIncome">
+                                                <span class="btn-icon">+</span>
+                                                Add Income
+                                            </button>
+                                            <button class="quick-add-btn expense" id="quickAddExpense">
+                                                <span class="btn-icon">-</span>
+                                                Add Expense
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Smart Insights Panel -->
+                        <div class="insights-container glass-effect slide-in-up">
+                            <div class="section-header">
+                                <div class="section-title">
+                                    <h3>Smart Insights</h3>
+                                    <p class="section-description">AI-powered financial tips</p>
+                                </div>
+                                <div class="insights-indicator">
+                                    <span class="indicator-dot active"></span>
+                                    <span class="indicator-text">Active</span>
+                                </div>
+                            </div>
+                            <div class="insights-content">
+                                <div class="insights-list" id="smartInsights">
+                                    <div class="insight-item welcome">
+                                        <div class="insight-icon">🎉</div>
+                                        <div class="insight-content">
+                                            <h4>Welcome to SmartFinance!</h4>
+                                            <p>Start by adding your first transaction to unlock personalized insights.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Other sections remain the same but will be enhanced with dynamic data -->
+            </div>
+        </main>
+    </div>
+    
+    <!-- Enhanced Modals and Overlays -->
+    
+    <script src="dataModel.js"></script>
+    <script src="validation.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>
