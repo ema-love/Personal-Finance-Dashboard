@@ -62,3 +62,4 @@ budget-it-app
 ## Usage
 - Users can register for a new account or log in to an existing account.
 - Once logged in, users can create budgets and manage transactions through the dashboard.
+- 
