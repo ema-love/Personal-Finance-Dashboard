@@ -1,7 +1,7 @@
-# BudgetIt App
+# Budget It App
 
 ## Overview
-The BudgetIt is a web application designed to help users manage their budgets and track transactions efficiently. It provides a user-friendly interface for authentication, budget creation, and transaction management.
+The Budget It is a web application designed to help users manage their budgets and track transactions efficiently. It provides a user-friendly interface for authentication, budget creation, and transaction management.
 
 ## Features
 - User authentication (registration and login)
@@ -62,9 +62,3 @@ budget-it-app
 ## Usage
 - Users can register for a new account or log in to an existing account.
 - Once logged in, users can create budgets and manage transactions through the dashboard.
-
-## Contributing
-Contributions are welcome! Please submit a pull request or open an issue for any enhancements or bug fixes.
-
-## License
-This project is licensed under the MIT License. See the LICENSE file for details.
